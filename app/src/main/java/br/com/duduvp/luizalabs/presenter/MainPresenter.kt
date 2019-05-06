@@ -1,16 +1,17 @@
 package br.com.duduvp.luizalabs.presenter
 
-import br.com.duduvp.luizalabs.data.model.MainRepository
 import br.com.duduvp.luizalabs.presenter.contract.MainContract
 import br.com.duduvp.luizalabs.ui.MainActivity
 
-class MainPresenter(mainView : MainActivity) : MainContract.Presenter {
+class MainPresenter(mainView: MainActivity) : MainContract.Presenter {
 
-    private var view : MainActivity = mainView
-    private var model : MainRepository = MainRepository()
+    private var view: MainActivity = mainView
 
-    init {
-
+    override fun searchUser(user: String) {
+        when {
+            true -> view.showTweets(user)
+            else -> view.userNotFound()
+        }
     }
 
 }
